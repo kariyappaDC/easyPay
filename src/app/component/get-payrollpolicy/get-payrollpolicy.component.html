@@ -1,0 +1,67 @@
+<h1>Display Payroll Policy</h1>
+
+<div class="container">
+  <div class="button-group">
+    <!-- Form to Search for a Payroll Policy by ID -->
+    <form #policyForm="ngForm" (ngSubmit)="getPayrollPolicyById(policyForm.value.policyId)" class="search-form">
+      <label for="policyId" class="sr-only">Search Policy by ID:</label>
+      <div class="input-group">
+        <input type="number" id="policyId" name="policyId" class="form-control" ngModel required placeholder="Enter Policy ID">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </form>
+
+    <!-- Button to View All Payroll Policies -->
+    <button type="button" class="btn btn-success" (click)="getAllPayrollPolicies()">View All Policies</button>
+  </div>
+
+  <br>
+
+  <!-- Display Payroll Policy Details -->
+  <div *ngIf="selectedPolicy" class="mt-4">
+    <h3>Policy Details</h3>
+    <table class="table table-bordered">
+      <tr><th>Field</th><th>Value</th></tr>
+      <tr><td>Policy ID</td><td>{{selectedPolicy.policyId}}</td></tr>
+      <tr><td>Policy Name</td><td>{{selectedPolicy.policyName}}</td></tr>
+      <tr><td>Policy Description</td><td>{{selectedPolicy.policyDesc}}</td></tr>
+      <tr><td>Base Salary</td><td>{{selectedPolicy.baseSalary}}</td></tr>
+      <tr><td>Overtime Rate</td><td>{{selectedPolicy.overtimeRate}}</td></tr>
+      <tr><td>Tax Percentage</td><td>{{selectedPolicy.taxPercentage}}</td></tr>
+    </table>
+    <button [routerLink]="['/hr-dashboard/editpay', selectedPolicy.policyId]" class="btn btn-warning btn-sm">Update</button>
+    <button type="button" class="btn btn-danger" (click)="deletePayrollPolicy(selectedPolicy.policyId)">Delete</button>
+  </div>
+
+  <br>
+
+  <!-- Display All Payroll Policies -->
+  <div *ngIf="policyList.length > 0" class="mt-4">
+    <h3>All Payroll Policies</h3>
+    <table class="table table-dark">
+      <tr>
+        <th>Policy ID</th>
+        <th>Policy Name</th>
+        <th>Description</th>
+        <th>Base Salary</th>
+        <th>Overtime Rate</th>
+        <th>Tax Percentage</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let policy of policyList">
+        <td>{{policy.policyId}}</td>
+        <td>{{policy.policyName}}</td>
+        <td>{{policy.policyDesc}}</td>
+        <td>{{policy.baseSalary}}</td>
+        <td>{{policy.overtimeRate}}</td>
+        <td>{{policy.taxPercentage}}</td>
+        <td>
+          <button [routerLink]="['/hr-dashboard/editpay', policy.policyId]" class="btn btn-warning btn-sm">Update</button>
+          <button type="button" (click)="deletePayrollPolicy(policy.policyId)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

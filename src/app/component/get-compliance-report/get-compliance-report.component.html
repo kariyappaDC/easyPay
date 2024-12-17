@@ -1,0 +1,61 @@
+<h1>Display Compliance Report</h1>
+
+<div class="container">
+  <div class="button-group">
+    <!-- Form to Search for a Compliance Report by ID -->
+    <form #reportForm="ngForm" (ngSubmit)="getComplianceReportById(reportForm.value.reportId)" class="search-form">
+      <label for="reportId" class="sr-only">Search Report by ID:</label>
+      <div class="input-group">
+        <input type="number" id="reportId" name="reportId" class="form-control" ngModel required placeholder="Enter Report ID">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </form>
+
+    <!-- Button to View All Compliance Reports -->
+    <button type="button" class="btn btn-success" (click)="getAllComplianceReports()">View All Reports</button>
+  </div>
+
+  <br>
+
+  <!-- Display Selected Compliance Report Details -->
+  <div *ngIf="selectedReport" class="mt-4">
+    <h3>Report Details</h3>
+    <table class="table table-bordered">
+      <tr><th>Field</th><th>Value</th></tr>
+      <tr><td>Report ID</td><td>{{selectedReport.reportId}}</td></tr>
+      <tr><td>Report Date</td><td>{{selectedReport.reportDate}}</td></tr>
+      <tr><td>Compliance Status</td><td>{{selectedReport.complianceStatus}}</td></tr>
+      <tr><td>Employee ID</td><td>{{selectedReport.emp_id}}</td></tr>
+    </table>
+    <button [routerLink]="['/hr-dashboard/editcom', selectedReport.reportId]" class="btn btn-warning btn-sm">Update</button>
+    <button type="button" class="btn btn-danger" (click)="deleteComplianceReport(selectedReport.reportId)">Delete</button>
+  </div>
+
+  <br>
+
+  <!-- Display All Compliance Reports -->
+  <div *ngIf="reportList.length > 0" class="mt-4">
+    <h3>All Compliance Reports</h3>
+    <table class="table table-dark">
+      <tr>
+        <th>Report ID</th>
+        <th>Report Date</th>
+        <th>Compliance Status</th>
+        <th>Employee ID</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let report of reportList">
+        <td>{{report.reportId}}</td>
+        <td>{{report.reportDate}}</td>
+        <td>{{report.complianceStatus}}</td>
+        <td>{{report.emp_id}}</td>
+        <td>
+          <button [routerLink]="['/hr-dashboard/editcom', report.reportId]" class="btn btn-warning btn-sm">Update</button>
+          <button type="button" (click)="deleteComplianceReport(report.reportId)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

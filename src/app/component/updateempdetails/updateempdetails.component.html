@@ -1,0 +1,175 @@
+<div class="container mt-4">
+  <form #empForm="ngForm" (ngSubmit)="updateEmpPersonalInformation(empForm.value)" novalidate>
+    <h3>Update Employee Information</h3>
+
+    <!-- Employee ID -->
+    <div class="form-group">
+      <label for="empId">Employee ID</label>
+      <input
+        type="number"
+        id="empId"
+        name="empId"
+        class="form-control"
+        [(ngModel)]="empDto.empId"
+        required
+        #empId="ngModel"
+      />
+      <div *ngIf="empId.invalid && empId.touched" class="text-danger">
+        Employee ID is required.
+      </div>
+    </div>
+
+    <!-- Employee Name -->
+    <div class="form-group">
+      <label for="empName">Employee Name</label>
+      <input
+        type="text"
+        id="empName"
+        name="empName"
+        class="form-control"
+        [(ngModel)]="empDto.empName"
+        required
+        minlength="3"
+        #empName="ngModel"
+      />
+      <div *ngIf="empName.invalid && empName.touched" class="text-danger">
+        <div *ngIf="empName.errors?.['required']">Employee Name is required.</div>
+        <div *ngIf="empName.errors?.['minlength']">
+          Employee Name must be at least 3 characters long.
+        </div>
+      </div>
+    </div>
+
+    <!-- Position -->
+    <div class="form-group">
+      <label for="position">Position</label>
+      <input
+        type="text"
+        id="position"
+        name="position"
+        class="form-control"
+        [(ngModel)]="empDto.position"
+        required
+        #position="ngModel"
+      />
+      <div *ngIf="position.invalid && position.touched" class="text-danger">
+        Position is required.
+      </div>
+    </div>
+
+    <!-- Department -->
+    <div class="form-group">
+      <label for="empDepartment">Department</label>
+      <input
+        type="text"
+        id="empDepartment"
+        name="empDepartment"
+        class="form-control"
+        [(ngModel)]="empDto.empDepartment"
+        required
+        #empDepartment="ngModel"
+      />
+      <div *ngIf="empDepartment.invalid && empDepartment.touched" class="text-danger">
+        Department is required.
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      class="btn btn-primary mt-3"
+      [disabled]="empForm.invalid"
+    >
+      Update Details
+    </button>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<div class="container mt-4">
+  <h2>Update Personal Information</h2>
+  
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="empId" class="form-label">Employee ID</label>
+      <input type="number" 
+             class="form-control" 
+             id="empId" 
+             formControlName="empId"
+             min="1">
+      <div *ngIf="updateForm.get('empId')?.touched && updateForm.get('empId')?.errors" class="text-danger">
+        <small *ngIf="updateForm.get('empId')?.errors?.['required']">Employee ID is required</small>
+        <small *ngIf="updateForm.get('empId')?.errors?.['min']">Employee ID must be greater than 0</small>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="empName" class="form-label">Name</label>
+      <input type="text" class="form-control" id="empName" formControlName="empName">
+      <div *ngIf="updateForm.get('empName')?.touched && updateForm.get('empName')?.errors?.['required']" class="text-danger">
+        <small>Name is required</small>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="empDepartment" class="form-label">Department</label>
+      <input type="text" class="form-control" id="empDepartment" formControlName="empDepartment">
+      <div *ngIf="updateForm.get('empDepartment')?.touched && updateForm.get('empDepartment')?.errors?.['required']" class="text-danger">
+        <small>Department is required</small>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="position" class="form-label">Position</label>
+      <input type="text" class="form-control" id="position" formControlName="position">
+      <div *ngIf="updateForm.get('position')?.touched && updateForm.get('position')?.errors?.['required']" class="text-danger">
+        <small>Position is required</small>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!updateForm.valid">Update</button>
+  </form>
+
+  <div *ngIf="successMessage" class="alert alert-success mt-3">
+    {{ successMessage }}
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+    {{ errorMessage }}
+  </div>
+</div> 
+
+  -->

@@ -1,0 +1,15 @@
+<h1>Add Compliance Report Details Here</h1>
+
+<form class="container col-md-6" #complianceForm="ngForm" (ngSubmit)="submitCompliance(complianceForm.value)">
+
+    Enter Report Date: <input type="date" class="form-control" name="reportDate" ngModel required placeholder="Enter Report Date"> <br>
+
+    Enter Compliance Status: <input type="text" class="form-control" name="complianceStatus" ngModel required placeholder="Enter Compliance Status"> <br>
+
+    Enter Employee ID: <input type="number" class="form-control" name="emp_id" ngModel required placeholder="Enter Employee ID"> <br>
+
+
+
+    <button type="submit" class="btn btn-primary">Submit Compliance Report</button>
+
+</form>
