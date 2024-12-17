@@ -1,0 +1,398 @@
+[INFO]  :  Starting EasypayPayrollManagementSystemApplication using Java 21.0.4 with PID 17880 (C:\Users\kavan\OneDrive\Desktop\new\easypay\target\classes started by kavan in C:\Users\kavan\OneDrive\Desktop\new\easypay)
+[INFO]  :  No active profile set, falling back to 1 default profile: "default"
+[INFO]  :  Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO]  :  Finished Spring Data repository scanning in 223 ms. Found 10 JPA repository interfaces.
+[INFO]  :  Tomcat initialized with port 8181 (http)
+[INFO]  :  Starting service [Tomcat]
+[INFO]  :  Starting Servlet engine: [Apache Tomcat/10.1.31]
+[INFO]  :  Initializing Spring embedded WebApplicationContext
+[INFO]  :  Root WebApplicationContext: initialization completed in 3933 ms
+[INFO]  :  HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO]  :  HHH000412: Hibernate ORM core version 6.4.10.Final
+[INFO]  :  HHH000026: Second-level cache disabled
+[INFO]  :  No LoadTimeWeaver setup: ignoring JPA class transformer
+[INFO]  :  HikariPool-1 - Starting...
+[INFO]  :  HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2375a976
+[INFO]  :  HikariPool-1 - Start completed.
+[INFO]  :  HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[INFO]  :  Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO]  :  Hibernate is in classpath; If applicable, HQL parser will be used.
+[WARN]  :  spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO]  :  Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@78ab6103, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f57fde7, org.springframework.security.web.context.SecurityContextHolderFilter@1177049c, org.springframework.security.web.header.HeaderWriterFilter@66403e2c, org.springframework.web.filter.CorsFilter@53c1f4ae, org.springframework.security.web.authentication.logout.LogoutFilter@41f53068, com.hexaware.easyspay.filter.JwtAuthFilter@765e5a55, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@32394a4b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6a702361, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2f829755, org.springframework.security.web.session.SessionManagementFilter@3b00c9f6, org.springframework.security.web.access.ExceptionTranslationFilter@2cca15d8, org.springframework.security.web.access.intercept.AuthorizationFilter@53de80b9]
+[INFO]  :  Tomcat started on port 8181 (http) with context path ''
+[INFO]  :  Started EasypayPayrollManagementSystemApplication in 16.223 seconds (process running for 17.98)
+[INFO]  :  Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO]  :  Initializing Servlet 'dispatcherServlet'
+[INFO]  :  Completed initialization in 0 ms
+[INFO]  :  Token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJOaWhhckEiLCJpYXQiOjE3MzQzOTg5NzEsImV4cCI6MTczNDQwMDc3MX0.eTOtyg3P1_mP_-crWfxjusichKwYrhCh9l65KsPU7YY
+[INFO]  :  Fetching employee with ID: 1
+[INFO]  :  Employee fetched successfully: EmployeeReceiveDTO [empId=1, empName=kavan, position=HR manager, empDepartment=HR, empsalary=95000.0, joinDate=2024-11-28, userId=5, deductionId=1, benefitId=1, roleId=2, managerId=null]
+[INFO]  :  Fetching all employees.
+[INFO]  :  Total employees fetched: 10
+[INFO]  :  Fetching compliance report with ID: 1
+[INFO]  :  Fetching all compliance reports.
+[INFO]  :  Total compliance reports fetched: 2
+[INFO]  :  Fetching compliance report with ID: 12
+[INFO]  :  Fetching compliance report with ID: 2
+[INFO]  :  Compliance report fetched successfully: ComplianceReportDTO [reportId=2, reportDate=2024-11-27, complianceStatus=non-compliant, emp_id=1]
+[INFO]  :  Fetching all payroll policies.
+[INFO]  :  Total payroll policies fetched: 3
+[INFO]  :  Token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzcG9vcnRoaSIsImlhdCI6MTczNDM5OTExMiwiZXhwIjoxNzM0NDAwOTEyfQ.BNUY9QOFRsPzat8UZifCaO3vnKm1IwtYFsD9VjZvE88
+[ERROR]  :  Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2024-12-17T02:01:52Z. Current time: 2024-12-17T02:05:02Z, a difference of 190925 milliseconds.  Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:427)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
+	at com.hexaware.easyspay.service.JwtService.extractAllClaims(JwtService.java:65)
+	at com.hexaware.easyspay.service.JwtService.extractClaim(JwtService.java:71)
+	at com.hexaware.easyspay.service.JwtService.extractUsername(JwtService.java:79)
+	at com.hexaware.easyspay.filter.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:52)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[INFO]  :  Token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzcG9vcnRoaSIsImlhdCI6MTczNDQwMTE1OCwiZXhwIjoxNzM0NDAyOTU4fQ.lQdC-5EWI0E-SORJt_7xqR9fHcUmAp4P4Il6uMqFJq8
+[INFO]  :  Token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJOaWhhckEiLCJpYXQiOjE3MzQ0MDE1MjgsImV4cCI6MTczNDQwMzMyOH0.woxa7T_zU3y4M4wW8iLuNh9UHuiCI1y8jCQqDcc9_fM
+[INFO]  :  Fetching all employees.
+[INFO]  :  Total employees fetched: 5
+[INFO]  :  Fetching employee with ID: 15
+[INFO]  :  Employee fetched successfully: EmployeeReceiveDTO [empId=15, empName=rubin , position=software engineer , empDepartment=engineering , empsalary=59999.0, joinDate=2024-12-16, userId=6, deductionId=1, benefitId=1, roleId=1, managerId=1]
+[INFO]  :  Updating employee : EmployeeReceiveDTO [empId=15, empName=rubin , position=software engineer , empDepartment=engineering , empsalary=59999.0, joinDate=2024-12-16, userId=6, deductionId=1, benefitId=1, roleId=1, managerId=2]
+[ERROR]  :  Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.RuntimeException: Manager not found with ID: 2] with root cause
+java.lang.RuntimeException: Manager not found with ID: 2
+	at com.hexaware.easyspay.service.AdminHrManagerServiceImp.lambda$9(AdminHrManagerServiceImp.java:152)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.hexaware.easyspay.service.AdminHrManagerServiceImp.updateEmployee(AdminHrManagerServiceImp.java:152)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:716)
+	at com.hexaware.easyspay.service.AdminHrManagerServiceImp$$SpringCGLIB$$0.updateEmployee(<generated>)
+	at com.hexaware.easyspay.controller.AdminHrManagerController.updateEmployee(AdminHrManagerController.java:62)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.invoke(AuthorizationManagerBeforeMethodInterceptor.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720)
+	at com.hexaware.easyspay.controller.AdminHrManagerController$$SpringCGLIB$$0.updateEmployee(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:925)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:593)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.hexaware.easyspay.filter.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:67)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[INFO]  :  Updating employee : EmployeeReceiveDTO [empId=15, empName=rubin , position=software engineer , empDepartment=engineering , empsalary=59999.0, joinDate=2024-12-16, userId=6, deductionId=1, benefitId=1, roleId=1, managerId=4]
+[INFO]  :  Employee updated successfully: com.hexaware.easyspay.entities.Employee@14511afa
+[INFO]  :  Updating employee : EmployeeReceiveDTO [empId=15, empName=rubin , position=software engineer , empDepartment=engineering , empsalary=59999.0, joinDate=2024-12-16, userId=6, deductionId=1, benefitId=1, roleId=1, managerId=4]
+[INFO]  :  Employee updated successfully: com.hexaware.easyspay.entities.Employee@4bf68466
+[ERROR]  :  Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2024-12-17T02:42:08Z. Current time: 2024-12-17T03:28:31Z, a difference of 2783716 milliseconds.  Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:427)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
+	at com.hexaware.easyspay.service.JwtService.extractAllClaims(JwtService.java:65)
+	at com.hexaware.easyspay.service.JwtService.extractClaim(JwtService.java:71)
+	at com.hexaware.easyspay.service.JwtService.extractUsername(JwtService.java:79)
+	at com.hexaware.easyspay.filter.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:52)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[INFO]  :  Token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZW5pdGgiLCJpYXQiOjE3MzQ0MDY0NjMsImV4cCI6MTczNDQwODI2M30.VabG4Emk-W0yLQEs4fNHYPtrhjFL9QLyR6Ddf_8c_rU
+[INFO]  :  Team payroll Retrieval Succesfull
+[INFO]  :  Token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJOaWhhckEiLCJpYXQiOjE3MzQ0MDY3MjIsImV4cCI6MTczNDQwODUyMn0.6hK15b6g5ZFc-2E6tCqF3D70TxRf9HKji5eIyL5ChIs
+[INFO]  :  Fetching all employees.
+[INFO]  :  Total employees fetched: 5
+[INFO]  :  Fetching employee with ID: 1
+[INFO]  :  Employee fetched successfully: EmployeeReceiveDTO [empId=1, empName=kavan, position=HR manager, empDepartment=HR, empsalary=95000.0, joinDate=2024-11-28, userId=5, deductionId=1, benefitId=1, roleId=2, managerId=null]
+[INFO]  :  Fetching all employees.
+[INFO]  :  Total employees fetched: 5
+[INFO]  :  Fetching employee with ID: 2
+[INFO]  :  Token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJOaWhhckEiLCJpYXQiOjE3MzQ0MDcwODQsImV4cCI6MTczNDQwODg4NH0.eZXbV-o_B3Gz7TXi4YA1rYMq-aEOgw5X7CmSAChfyMw
+[INFO]  :  Token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJOaWhhckEiLCJpYXQiOjE3MzQ0MTQzNzksImV4cCI6MTczNDQxNjE3OX0.EktboVJtVf6HNNc43QJKf68CgM-3Hu6Gg_LK7NpNNlI
+[INFO]  :  Fetching all employees.
+[INFO]  :  Total employees fetched: 5
+[INFO]  :  Fetching all employees.
+[INFO]  :  Total employees fetched: 5
+[INFO]  :  Fetching employee with ID: 1
+[INFO]  :  Employee fetched successfully: EmployeeReceiveDTO [empId=1, empName=kavan, position=HR manager, empDepartment=HR, empsalary=95000.0, joinDate=2024-11-28, userId=5, deductionId=1, benefitId=1, roleId=2, managerId=null]
+[INFO]  :  Fetching employee with ID: 1
+[INFO]  :  Employee fetched successfully: EmployeeReceiveDTO [empId=1, empName=kavan, position=HR manager, empDepartment=HR, empsalary=95000.0, joinDate=2024-11-28, userId=5, deductionId=1, benefitId=1, roleId=2, managerId=null]
+[INFO]  :  Fetching employee with ID: 1
+[INFO]  :  Employee fetched successfully: EmployeeReceiveDTO [empId=1, empName=kavan, position=HR manager, empDepartment=HR, empsalary=95000.0, joinDate=2024-11-28, userId=5, deductionId=1, benefitId=1, roleId=2, managerId=null]
+[INFO]  :  Fetching employee with ID: 1
+[INFO]  :  Employee fetched successfully: EmployeeReceiveDTO [empId=1, empName=kavan, position=HR manager, empDepartment=HR, empsalary=95000.0, joinDate=2024-11-28, userId=5, deductionId=1, benefitId=1, roleId=2, managerId=null]
+[INFO]  :  Fetching employee with ID: 1
+[INFO]  :  Employee fetched successfully: EmployeeReceiveDTO [empId=1, empName=kavan, position=HR manager, empDepartment=HR, empsalary=95000.0, joinDate=2024-11-28, userId=5, deductionId=1, benefitId=1, roleId=2, managerId=null]
+[INFO]  :  Fetching all compliance reports.
+[INFO]  :  Total compliance reports fetched: 2
+[INFO]  :  Fetching compliance report with ID: 2
+[INFO]  :  Compliance report fetched successfully: ComplianceReportDTO [reportId=2, reportDate=2024-11-27, complianceStatus=non-compliant, emp_id=1]
+[INFO]  :  Fetching compliance report with ID: 1
+[INFO]  :  Fetching compliance report with ID: 2
+[INFO]  :  Compliance report fetched successfully: ComplianceReportDTO [reportId=2, reportDate=2024-11-27, complianceStatus=non-compliant, emp_id=1]
+[INFO]  :  Fetching all compliance reports.
+[INFO]  :  Total compliance reports fetched: 2
+[INFO]  :  Fetching compliance report with ID: 1
+[INFO]  :  Fetching compliance report with ID: 2
+[INFO]  :  Compliance report fetched successfully: ComplianceReportDTO [reportId=2, reportDate=2024-11-27, complianceStatus=non-compliant, emp_id=1]
+[INFO]  :  Fetching all compliance reports.
+[INFO]  :  Total compliance reports fetched: 2
+[INFO]  :  Token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzcG9vcnRoaSIsImlhdCI6MTczNDQxNzQwMiwiZXhwIjoxNzM0NDE5MjAyfQ.s3mC7mu1BHfk5xOymXTuXwIgVjEnDagTCU5EOtOg5WA
+[INFO]  :  Token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJOaWhhckEiLCJpYXQiOjE3MzQ0MjA4NzcsImV4cCI6MTczNDQyMjY3N30.RwyNZfdrc4B4XKOu4vZq-AM3hXEe76Jhr3Yb_C9UhGU
+[INFO]  :  Token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzcG9vcnRoaSIsImlhdCI6MTczNDQyMjk5NSwiZXhwIjoxNzM0NDI0Nzk1fQ.MRCV1oZmeBc4aWY3Z0XuWcDA20odgNd3bHlVsw8Q3ac
+[INFO]  :  Token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJOaWhhckEiLCJpYXQiOjE3MzQ0MjUwNjQsImV4cCI6MTczNDQyNjg2NH0.q9anwXDkdDMsbVJ6dQExi41N-P7941mcc8bpWRv5JdI
+[INFO]  :  Fetching employee with ID: 100
+[INFO]  :  Token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJOaWhhckEiLCJpYXQiOjE3MzQ0MzMzOTAsImV4cCI6MTczNDQzNTE5MH0.zNWSGpan_M1m_RAcoZhCo1K6Lz1Lmn3r6eMkLtfcn3A
+[INFO]  :  Fetching employee with ID: 100
+[INFO]  :  Fetching all employees.
+[INFO]  :  Total employees fetched: 5
+[INFO]  :  Fetching employee with ID: 1
+[INFO]  :  Employee fetched successfully: EmployeeReceiveDTO [empId=1, empName=kavan, position=HR manager, empDepartment=HR, empsalary=95000.0, joinDate=2024-11-28, userId=5, deductionId=1, benefitId=1, roleId=2, managerId=null]
+[INFO]  :  Fetching all employees.
+[INFO]  :  Total employees fetched: 5
+[INFO]  :  Fetching employee with ID: 1
+[INFO]  :  Employee fetched successfully: EmployeeReceiveDTO [empId=1, empName=kavan, position=HR manager, empDepartment=HR, empsalary=95000.0, joinDate=2024-11-28, userId=5, deductionId=1, benefitId=1, roleId=2, managerId=null]
+[INFO]  :  Updating employee : EmployeeReceiveDTO [empId=1, empName=harish, position=HR manager, empDepartment=HR, empsalary=95000.0, joinDate=2024-11-28, userId=5, deductionId=1, benefitId=1, roleId=2, managerId=null]
+[INFO]  :  Employee updated successfully: com.hexaware.easyspay.entities.Employee@521c290d
+[WARN]  :  Ignoring exception, response committed already: org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Infinite recursion (StackOverflowError)
+[WARN]  :  Resolved [org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Infinite recursion (StackOverflowError)]
+[INFO]  :  Fetching all employees.
+[INFO]  :  Total employees fetched: 5
+[INFO]  :  Adding a new employee: com.hexaware.easyspay.dto.EmployeeDto@78fb9a61
+[INFO]  :  Employee added successfully: com.hexaware.easyspay.entities.Employee@5e9c9030
+[WARN]  :  Ignoring exception, response committed already: org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Infinite recursion (StackOverflowError)
+[WARN]  :  Resolved [org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Infinite recursion (StackOverflowError)]
+[INFO]  :  Adding a new compliance report: ComplianceReportDTO [reportDate=2024-12-17, complianceStatus=compliant , emp_id=1]
+[INFO]  :  Compliance report added successfully: ComplianceReport [reportId=6, reportDate=2024-12-17, complianceStatus=compliant , employee=com.hexaware.easyspay.entities.Employee@78f3ccdd]
+[INFO]  :  Fetching all compliance reports.
+[INFO]  :  Total compliance reports fetched: 3
+[INFO]  :  Fetching all payroll policies.
+[INFO]  :  Total payroll policies fetched: 23
+[INFO]  :  Deleting payroll policy with ID: 1
+[INFO]  :  Payroll policy with ID 1 deleted successfully.
+[INFO]  :  Fetching all payroll policies.
+[INFO]  :  Total payroll policies fetched: 22
+[INFO]  :  Deleting payroll policy with ID: 2
+[INFO]  :  Payroll policy with ID 2 deleted successfully.
+[INFO]  :  Fetching all payroll policies.
+[INFO]  :  Total payroll policies fetched: 21
+[INFO]  :  Token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzcG9vcnRoaSIsImlhdCI6MTczNDQzMzU2MSwiZXhwIjoxNzM0NDM1MzYxfQ.vpUTtJFw9mSMPLUncUdrdCpgHlj_h-pUkwiMPW10zJg
+[INFO]  :  Application shutdown requested.
+[INFO]  :  Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO]  :  HikariPool-1 - Shutdown initiated...
+[INFO]  :  HikariPool-1 - Shutdown completed.
