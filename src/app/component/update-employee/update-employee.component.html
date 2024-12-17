@@ -1,0 +1,179 @@
+<h1>Update Employee Details</h1>
+
+<div *ngIf="employee" class="mt-4">
+  <h2 class="mb-4">Edit Employee</h2>
+  <form (ngSubmit)="updateEmployee()" #employeeForm="ngForm" class="w-50 mx-auto">
+
+    <!-- Employee ID -->
+    <div class="mb-3">
+      <label for="empId" class="form-label">Employee ID:</label>
+      <input
+        type="number"
+        id="empId"
+        class="form-control"
+        [(ngModel)]="employee.empId"
+        name="empId"
+        required
+        #empId="ngModel"
+        readonly
+      />
+    </div>
+
+    <!-- Employee Name -->
+    <div class="mb-3">
+      <label for="employeeName" class="form-label">Name:</label>
+      <input
+        type="text"
+        id="employeeName"
+        class="form-control"
+        [(ngModel)]="employee.empName"
+        name="empName"
+        required
+        #empName="ngModel"
+      />
+      <div *ngIf="empName.invalid && empName.touched" class="text-danger">
+        Name is required.
+      </div>
+    </div>
+
+    <!-- Position -->
+    <div class="mb-3">
+      <label for="position" class="form-label">Position:</label>
+      <input
+        type="text"
+        id="position"
+        class="form-control"
+        [(ngModel)]="employee.position"
+        name="position"
+        required
+        #position="ngModel"
+      />
+      <div *ngIf="position.invalid && position.touched" class="text-danger">
+        Position is required.
+      </div>
+    </div>
+
+    <!-- Department -->
+    <div class="mb-3">
+      <label for="department" class="form-label">Department:</label>
+      <input
+        type="text"
+        id="department"
+        class="form-control"
+        [(ngModel)]="employee.empDepartment"
+        name="empDepartment"
+        required
+        #empDepartment="ngModel"
+      />
+      <div *ngIf="empDepartment.invalid && empDepartment.touched" class="text-danger">
+        Department is required.
+      </div>
+    </div>
+
+    <!-- Salary -->
+    <div class="mb-3">
+      <label for="salary" class="form-label">Salary:</label>
+      <input
+        type="number"
+        id="salary"
+        class="form-control"
+        [(ngModel)]="employee.empsalary"
+        name="empsalary"
+        required
+        min="0"
+        #empsalary="ngModel"
+      />
+      <div *ngIf="empsalary.invalid && empsalary.touched" class="text-danger">
+        Salary is required and should be positive.
+      </div>
+    </div>
+
+    <!-- Joining Date -->
+    <div class="mb-3">
+      <label for="joinDate" class="form-label">Joining Date:</label>
+      <input
+        type="date"
+        id="joinDate"
+        class="form-control"
+        [(ngModel)]="employee.joinDate"
+        name="joinDate"
+        required
+        #joinDate="ngModel"
+      />
+    </div>
+
+    <!-- User ID -->
+    <div class="mb-3">
+      <label for="userId" class="form-label">User ID:</label>
+      <input
+        type="number"
+        id="userId"
+        class="form-control"
+        [(ngModel)]="employee.userId"
+        name="userId"
+        required
+        #userId="ngModel"
+      />
+    </div>
+
+    <!-- Deduction ID -->
+    <div class="mb-3">
+      <label for="deductionId" class="form-label">Deduction ID:</label>
+      <input
+        type="number"
+        id="deductionId"
+        class="form-control"
+        [(ngModel)]="employee.deductionId"
+        name="deductionId"
+        required
+        #deductionId="ngModel"
+      />
+    </div>
+
+    <!-- Benefit ID -->
+    <div class="mb-3">
+      <label for="benefitId" class="form-label">Benefit ID:</label>
+      <input
+        type="number"
+        id="benefitId"
+        class="form-control"
+        [(ngModel)]="employee.benefitId"
+        name="benefitId"
+        required
+        #benefitId="ngModel"
+      />
+    </div>
+
+    <!-- Role ID -->
+    <div class="mb-3">
+      <label for="roleId" class="form-label">Role ID:</label>
+      <input
+        type="number"
+        id="roleId"
+        class="form-control"
+        [(ngModel)]="employee.roleId"
+        name="roleId"
+        required
+        #roleId="ngModel"
+      />
+    </div>
+
+    <!-- Manager ID -->
+    <div class="mb-3">
+      <label for="managerId" class="form-label">Manager ID (optional):</label>
+      <input
+        type="number"
+        id="managerId"
+        class="form-control"
+        [(ngModel)]="employee.managerId"
+        name="managerId"
+        #managerId="ngModel"
+      />
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid">
+      Update Employee
+    </button>
+  </form>
+</div>

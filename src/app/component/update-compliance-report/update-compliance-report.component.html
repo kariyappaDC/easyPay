@@ -1,0 +1,77 @@
+<h1>Update Compliance Report</h1>
+
+<div *ngIf="complianceReport" class="mt-4">
+  <h2 class="mb-4">Edit Compliance Report</h2>
+  <form (ngSubmit)="updateComplianceReport()" #complianceForm="ngForm" class="w-50 mx-auto">
+
+    <!-- Report ID -->
+    <div class="mb-3">
+      <label for="reportId" class="form-label">Report ID:</label>
+      <input
+        type="number"
+        id="reportId"
+        class="form-control"
+        [(ngModel)]="complianceReport.reportId"
+        name="reportId"
+        required
+        #reportId="ngModel"
+        readonly
+      />
+    </div>
+
+    <!-- Report Date -->
+    <div class="mb-3">
+      <label for="reportDate" class="form-label">Report Date:</label>
+      <input
+        type="date"
+        id="reportDate"
+        class="form-control"
+        [(ngModel)]="complianceReport.reportDate"
+        name="reportDate"
+        required
+        #reportDate="ngModel"
+      />
+    </div>
+
+    <!-- Compliance Status -->
+    <div class="mb-3">
+      <label for="complianceStatus" class="form-label">Compliance Status:</label>
+      <select
+        id="complianceStatus"
+        class="form-control"
+        [(ngModel)]="complianceReport.complianceStatus"
+        name="complianceStatus"
+        required
+        #complianceStatus="ngModel"
+      >
+        <option value="compliant">Compliant</option>
+        <option value="non-compliant">Non-Compliant</option>
+      </select>
+      <div *ngIf="complianceStatus.invalid && complianceStatus.touched" class="text-danger">
+        Compliance Status is required.
+      </div>
+    </div>
+
+    <!-- Employee ID -->
+    <div class="mb-3">
+      <label for="emp_id" class="form-label">Employee ID:</label>
+      <input
+        type="number"
+        id="empId"
+        class="form-control"
+        [(ngModel)]="complianceReport.emp_id"
+        name="empId"
+        required
+        #empId="ngModel"
+      />
+      <div *ngIf="empId.invalid && empId.touched" class="text-danger">
+        Employee ID is required.
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary" [disabled]="complianceForm.invalid">
+      Update Compliance Report
+    </button>
+  </form>
+</div>

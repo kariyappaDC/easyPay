@@ -1,0 +1,73 @@
+<h1>Registration</h1>
+
+<form class="container col-md-4" #userForm="ngForm" (ngSubmit)="addUser(userForm.value)">
+
+  <!-- Username -->
+  <div>
+    Enter Username: 
+    <input 
+      type="text" 
+      class="form-control" 
+      required 
+      name="userName" 
+      ngModel 
+      #userNameControl="ngModel" 
+      minlength="5" 
+      maxlength="50">
+    <span style="color: red" *ngIf="userNameControl.touched && userNameControl.errors?.['required']">Username must not be blank.</span>
+    <span style="color: red" *ngIf="userNameControl.errors?.['minlength']">Username must be at least 5 characters long.</span>
+    <span style="color: red" *ngIf="userNameControl.errors?.['maxlength']">Username cannot exceed 50 characters.</span>
+  </div>
+  <br>
+
+  <!-- Password -->
+  <div>
+    Enter Password: 
+    <input 
+      type="password" 
+      class="form-control" 
+      required 
+      name="password" 
+      ngModel 
+      #passwordControl="ngModel" 
+      pattern="^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[@#$%^&+=]).*$" 
+      minlength="8">
+    <span style="color: red" *ngIf="passwordControl.touched && passwordControl.errors?.['required']">Password must not be blank.</span>
+    <span style="color: red" *ngIf="passwordControl.errors?.['minlength']">Password must be at least 8 characters long.</span>
+    <span style="color: red" *ngIf="passwordControl.errors?.['pattern']">Password must contain at least one letter, one number, and one special character.</span>
+  </div>
+  <br>
+
+  <!-- Role Name  -->
+  <div>
+    Select Role Name:
+    <select class="form-control" required name="roleName" ngModel #roleNameControl="ngModel">
+      <option value="" disabled selected>Select a role</option>
+      <option value="HR">HR</option>
+      <option value="MANAGER">Manager</option>
+      <option value="EMPLOYEE">Employee</option>
+      <option value="PAYROLL_PROCESSOR">Payroll Processor</option>
+    </select>
+    <span style="color: red" *ngIf="roleNameControl.touched && roleNameControl.invalid">Role name is mandatory.</span>
+  </div>
+  <br>
+
+  <!-- Role ID -->
+  <div>
+    Enter Role ID: 
+    <input 
+      type="number" 
+      class="form-control" 
+      required 
+      name="roleId" 
+      ngModel 
+      #roleIdControl="ngModel" 
+      min="1">
+    <span style="color: red" *ngIf="roleIdControl.touched && roleIdControl.errors?.['required']">Role ID must not be blank.</span>
+    <span style="color: red" *ngIf="roleIdControl.errors?.['min']">Role ID must be a positive number.</span>
+  </div>
+  <br>
+
+  <!-- Submit Button -->
+  <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Add User</button>
+</form>

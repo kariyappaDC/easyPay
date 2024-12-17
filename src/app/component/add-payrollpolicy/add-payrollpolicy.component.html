@@ -1,0 +1,14 @@
+<h1>Add Payroll Policy Details</h1>
+
+<form class="container col-md-6" #policyForm="ngForm" (ngSubmit)="submitPayrollPolicy(policyForm.value)">
+
+    Enter Policy ID: <input type="number" class="form-control" name="policyId" ngModel required placeholder="Enter Policy ID"> <br>
+    Enter Policy Name: <input type="text" class="form-control" name="policyName" ngModel required placeholder="Enter Policy Name"> <br>
+    Enter Policy Description: <input type="text" class="form-control" name="policyDesc" ngModel required placeholder="Enter Policy Description"> <br>
+    Enter Base Salary: <input type="number" class="form-control" name="baseSalary" ngModel required placeholder="Enter Base Salary"> <br>
+    Enter Overtime Rate: <input type="number" class="form-control" name="overtimeRate" ngModel required placeholder="Enter Overtime Rate"> <br>
+    Enter Tax Percentage: <input type="number" class="form-control" name="taxPercentage" ngModel required placeholder="Enter Tax Percentage"> <br>
+
+    <button type="submit" class="btn btn-primary">Submit Policy</button>
+
+</form>

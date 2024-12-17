@@ -1,0 +1,20 @@
+
+
+<h1>Add Employee Details Here</h1>
+
+<form class="container col-md-6" #employeeForm="ngForm" (ngSubmit)="submitEmployee(employeeForm.value)">
+
+    Enter Employee Name: <input type="text" class="form-control" name="empName" ngModel required placeholder="Enter Employee Name"> <br>
+    Enter Position: <input type="text" class="form-control" name="position" ngModel required placeholder="Enter Position"> <br>
+    Enter Department: <input type="text" class="form-control" name="empDepartment" ngModel required placeholder="Enter Department"> <br>
+    Enter Salary: <input type="number" class="form-control" name="empsalary" ngModel required placeholder="Enter Salary"> <br>
+    Enter Joining Date: <input type="date" class="form-control" name="joinDate" ngModel required> <br>
+    Enter User ID: <input type="number" class="form-control" name="userId" ngModel required> <br>
+    Enter Deduction ID: <input type="number" class="form-control" name="deductionId" ngModel> <br>
+    Enter Benefit ID: <input type="number" class="form-control" name="benefitId" ngModel> <br>
+    Enter Role ID: <input type="number" class="form-control" name="roleId" ngModel> <br>
+    Enter Manager ID: <input type="number" class="form-control" name="managerId" ngModel> <br>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
